@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  dbt:
+    build:
+      context: .
+    container_name: dbt_container
+    working_dir: /dbt
+    volumes:
+      - .:/dbt
+      - ~/.dbt:/root/.dbt
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
